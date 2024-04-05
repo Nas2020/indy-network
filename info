@@ -1,0 +1,51 @@
+
+### Create  indy_config.py at the /etc/indy directory
+
+### Make sure all these directories are exist
+
+```
+NETWORK_NAME = 'digicred'
+KEYS_DIR = '/var/lib/indy/keys' 
+LEDGER_DIR = '/var/lib/indy/ledger'
+GENESIS_DIR = '/var/lib/indy/genesis'
+LOG_DIR = '/var/lib/indy/log'
+PLUGINS_DIR = '/var/lib/indy/plugins'
+NODE_INFO_DIR = '/var/lib/indy/node_info'   
+```
+### Appropraite permissions
+sudo chown -R $USER:$USER /var/lib/indy/node_info/
+sudo chmod -R u+rw /var/lib/indy/node_info/
+
+
+create directories `keys` and `ledger` at /etc/indy/
+
+```
+python3 get_did_and_verkey.py --seed 100A000000300000c0000000Steward1
+```
+
+```
+sudo python3 init_indy_node.py --name Node1 --seed 4000F000u00000D0000000g0000Node1
+```
+
+```
+sudo python3 clear_setup.py --full True --network digicred
+```
+
+### ips
+18.144.169.115
+54.215.242.164
+54.151.44.255
+13.57.255.207
+```
+sudo bash multi_host_host1_generation.sh
+```
+
+```
+sudo python3 start_indy_node.py Node1 0.0.0.0 9701 0.0.0.0 9702
+```
+
+### To check node information and to restart stopped node
+```
+sudo python3 validator_info.py
+sudo bash restart_indy_node.sh
+```
