@@ -1,0 +1,16 @@
+services:
+  indy-digicred:
+    image: d-indy:0.2.9
+    env_file:
+      - .env
+    volumes:
+      - ./genesis_files:/var/lib/indy/genesis  
+      - ./keys:/var/lib/indy/keys
+      - ./log:/var/lib/indy/log
+      - ./plugins:/var/lib/indy/plugins
+      - ./node_info:/var/lib/indy/node_info
+      - indy-data:/var/lib/indy
+    entrypoint: ["/usr/local/bin/entrypoint.sh"]
+
+volumes:
+  indy-data: {}
