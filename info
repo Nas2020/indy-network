@@ -1,16 +1,82 @@
 
-### installing docker
+### Pre-requisites After Lauching EC2 instnace (Ubuntu )
+ <!-- ssh connection to local VScode and then  -->
+```
+sudo apt update
+```
+```
+sudo apt upgrade -y
+```
+```
+curl -fsSL https://get.docker.com -o get-docker.sh
+sudo sh get-docker.sh
+```
+```
+sudo usermod -aG docker ${USER} 
+```
+or 
+ 
+```
+sudo usermod -aG docker ubuntu
+```
+```
+groups
+```
 
-sudo snap install docker     # version 24.0.5, or
-sudo apt  install docker.io  # version 24.0.5-0ubuntu1~20.04.1
+Note! See if docker is inside the groups, if not still have to use sudo prefix to docker. After above, if you still can't access docker without sudo. start new terminal session or Disconnect and connect back to remote ssh or still cannot try sudo reboot
 
-sudo usermod -aG docker $USER
-newgrp docker
+```
  sudo curl -L "https://github.com/docker/compose/releases/latest/download/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose  
- sudo chmod +x /usr/local/bin/docker-compose
- export PATH=/usr/local/bin:$PATH
- source ~/.bashrc
+```
+
+ 
+```
+export PATH=/usr/local/bin:$PATH
+```
+
+```
+source ~/.bashrc
+```
+```
+sudo chmod +x /usr/local/bin/docker-compose
+
+```
+
+```
  docker-compose --version
+ ```
+
+ 
+
+### Next, Get all the script files necessary
+
+```
+git clone https://github.com/Nas2020/indy-network.git
+```
+or 
+
+```
+git clone https://github.com/Nas2020/indy-network-v2.git
+```
+
+```
+cd indy-network-v2
+```
+
+`
+Navigate to .env-node and modify the content as required (details of node) and copy to file .env 
+`
+
+```
+docker build -t d-indy:0.2.9 .
+```
+
+
+--------------           -----------
+
+
+<!-- sudo snap install docker     # version 24.0.5, or
+sudo apt  install docker.io  # version 24.0.5-0ubuntu1~20.04.1 -->
  
 docker run -it indy-dev-base:1.0.1 /bin/bash
 # Create a new user "indyuser" and group (also "indyuser")
