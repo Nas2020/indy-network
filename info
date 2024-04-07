@@ -188,3 +188,12 @@ sudo python3 start_indy_node.py Node1 0.0.0.0 9701 0.0.0.0 9702
 sudo python3 validator_info.py
 sudo bash restart_indy_node.sh
 ```
+
+
+### To generate random 32byte(character)
+```
+sudo apt install pwgen
+```
+```
+pwgen -s 32 1
+```

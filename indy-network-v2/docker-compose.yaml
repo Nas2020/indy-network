@@ -9,6 +9,7 @@ services:
       - ./log:/var/lib/indy/log
       - ./plugins:/var/lib/indy/plugins
       - ./node_info:/var/lib/indy/node_info
+      - ./ledger:/var/lib/indy/ledger
       - indy-data:/var/lib/indy
     entrypoint: ["/usr/local/bin/entrypoint.sh"]
 
